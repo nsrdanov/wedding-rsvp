@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РСВП за Венчање</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Dancing+Script:wght@700&display=swap');
+        body {
+            font-family: 'Bodoni Moda', serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input, button {
+            font-family: 'Arial', sans-serif; /* Font for numbers without serifs */
+            font-size: 16px; /* Ensuring same font size for input fields and buttons */
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            width: 100%;
+        }
+        .calligraphy {
+            margin-top: 20px;
+            font-family: 'Lovely Audrey BG', cursive;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Позивница за Венчање</h1>
+        <p>Драги пријатељи и породицо, позивамо вас на наше венчање које ће се одржати у недељу 25.05.2025. у "Вила Вико - Ченеј". Молимо вас да потврдите или откажете своје присуство.</p>
+        
+        <form id="rsvpForm">
+            <input type="text" id="name" name="name" placeholder="Ваше име" required>
+            <button type="button" onclick="submitRSVP('Потврђујем')">Потврђујем присуство</button>
+            <button type="button" onclick="submitRSVP('Отказујем')">Отказујем присуство</button>
+        </form>
+        
+        <div class="calligraphy">Теодора & Горан</div>
+    </div>
+    
+    <script>
+        function submitRSVP(status) {
+            var name = document.getElementById('name').value;
+            if (name.trim() === "") {
+                alert("Молимо унесите ваше име.");
+                return;
+            }
+            var mailtoLink = `mailto:tvojemail@example.com?subject=РСВП&body=Име: ${name}%0AСтатус: ${status}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
